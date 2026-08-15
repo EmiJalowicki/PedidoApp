@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PedidoApp.MainPage">
+    <ContentPage.Resources>
+        <Color x:Key="Primario">#eaad42</Color>
+        <Color x:Key="Secundario">#dda65b</Color>
+        <Color x:Key="Terciario">#a2371a</Color>
+        <Color x:Key="Fondo">#f5f7e3</Color>
+    </ContentPage.Resources>
+
+    <Grid x:Name="Tab" BackgroundColor="{StaticResource Fondo}">
+        
+        <Border Margin="10,0,10,0" VerticalOptions="Center" BackgroundColor="White">
+
+            <VerticalStackLayout 
+                Spacing="15" 
+                VerticalOptions="Center"
+                Padding="10">
+                <!-- Titulo -->
+                <Label 
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Center"
+                    Text="PedidoApp"/>
+                <!-- Encabezados -->
+                <Grid
+                    ColumnDefinitions="60,*,100,45"
+                    RowDefinitions="Auto,Auto"
+                    ColumnSpacing="5"
+                    RowSpacing="5">
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="C."
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"/>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="Pedido"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"/>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Text="$$$/u"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"/>
+
+                </Grid>
+                <!-- Pedidos -->
+                <CollectionView
+                    ItemsSource="{Binding Items}">
+                    
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                ColumnDefinitions="60,*,100, 45"
+                                ColumnSpacing="5"
+                                Padding="0,5">
+                                <!-- CANT.-->
+                                <Entry
+                                    Grid.Column="0"
+                                    Text="{Binding Cantidad}"
+                                    Placeholder="0"
+                                    Keyboard="Numeric"
+                                    HorizontalTextAlignment="Center"/>
+                                <!-- Consumible / Item -->
+                                <Entry
+                                    Grid.Column="1"
+                                    Text="{Binding Consumible}"
+                                    Placeholder="Ingrese pedido"/>
+                                <!-- PRECIO -->
+                                <Entry
+                                    Grid.Column="2"
+                                    Text="{Binding Precio, Mode=TwoWay}"
+                                    Placeholder="0"
+                                    Keyboard="Numeric"
+                                    HorizontalTextAlignment="End"/>
+                                <!-- BORRAR -->
+                                <Button
+                                    Grid.Column="3"
+                                    Text="X"
+                                    Clicked="EliminarItem_Clicked"
+                                    WidthRequest="10"
+                                    HeightRequest="10"
+                                    Padding="0"
+                                    HorizontalOptions="End"/>
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+                
+                <!-- BOTON + -->
+                <Button
+                    Text="+"
+                    Clicked="AgregarItem_Clicked"
+                    HorizontalOptions="End"
+                    WidthRequest="25"
+                    HeightRequest="25"/>
+                
+                <!-- TOTAL / Imprimir -->
+                <Grid 
+                    ColumnDefinitions="Auto,*,Auto"
+                    ColumnSpacing="10">
+                    <!-- IMPRIMIR -->
+                    <Button
+                        Grid.Column="0"
+                        Text="Imprimir"
+                        WidthRequest="100"
+                        HeightRequest="45"
+                        Clicked="Imprimir_Clicked"/>
+
+                    <!-- TOTAL -->
+                    <Label
+                        Grid.Column="1"
+                        Text="Total:"
+                        VerticalTextAlignment="Center"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="End"/>
+                    <Label
+                        Grid.Column="2"
+                        FontSize="Large"
+                        Text="{Binding TotalFormateado}"
+                        FontAttributes="Bold"
+                        VerticalTextAlignment="Center"
+                        HorizontalTextAlignment="End"
+                        Margin="10,0,0,0"/>
+
+                </Grid>
+                
+            </VerticalStackLayout>
+            
+        </Border>
+
+    </Grid>
+</ContentPage>
