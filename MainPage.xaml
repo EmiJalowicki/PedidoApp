@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="PedidoApp.MainPage">
-    <ContentPage.Resources>
-        <Color x:Key="Primario">#eaad42</Color>
-        <Color x:Key="Secundario">#dda65b</Color>
-        <Color x:Key="Terciario">#a2371a</Color>
-        <Color x:Key="Fondo">#f5f7e3</Color>
-    </ContentPage.Resources>
-
+    <Page.Behaviors>
+        <toolkit:StatusBarBehavior 
+            StatusBarColor="{StaticResource Fondo}"
+            ApplyOn="OnPageNavigatedTo"/>
+    </Page.Behaviors>
+    
     <Grid x:Name="Tab" BackgroundColor="{StaticResource Fondo}">
         
         <Border Margin="10,0,10,0" VerticalOptions="Center" BackgroundColor="White">
@@ -83,6 +83,7 @@
                                 <Button
                                     Grid.Column="3"
                                     Text="X"
+                                    BackgroundColor="{StaticResource Terciario}"
                                     Clicked="EliminarItem_Clicked"
                                     WidthRequest="10"
                                     HeightRequest="10"
@@ -98,6 +99,7 @@
                 <!-- BOTON + -->
                 <Button
                     Text="+"
+                    BackgroundColor="{StaticResource Primario}"
                     Clicked="AgregarItem_Clicked"
                     HorizontalOptions="End"
                     WidthRequest="25"
@@ -110,10 +112,10 @@
                     <!-- IMPRIMIR -->
                     <Button
                         Grid.Column="0"
-                        Text="Imprimir"
-                        WidthRequest="100"
+                        Text="Crear Ticket"
+                        BackgroundColor="{StaticResource Primario}"
                         HeightRequest="45"
-                        Clicked="Imprimir_Clicked"/>
+                        Clicked="CrearTicket_Clicked"/>
 
                     <!-- TOTAL -->
                     <Label
