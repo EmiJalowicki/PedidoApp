@@ -12,21 +12,25 @@
             <Label
                 Text="La Cocina de So"
                 FontAttributes="Bold"
-                FontSize="24"
+                FontSize="32"
                 HorizontalTextAlignment="Center"
                 FontFamily="Aptos"/>
             <Label
                 Text="Virgen de Itatí 1621, Sol de Oro"
+                FontSize="18"
                 HorizontalTextAlignment="Center"/>
             <Label
                 Text="+54 9 11-5920-3972"
+                FontSize="18"
                 HorizontalTextAlignment="Center"/>
             <Label
                 Text="2134-4672"
+                FontSize="18"
                 HorizontalOptions="Center"/>
             <!-- Fecha -->
             <Label
                 x:Name="FechaLabel"
+                FontSize="18"
                 HorizontalTextAlignment="Center"/>
             <BoxView HeightRequest="1"/>
             
@@ -39,18 +43,21 @@
                 <Label
                     Grid.Column="0"
                     Text="C."
+                    FontSize="18"
                     FontAttributes="Bold"
                     HorizontalOptions="Center"/>
                 <!-- Pedido -->
                 <Label
                     Grid.Column="1"
                     Text="Pedido"
+                    FontSize="18"
                     FontAttributes="Bold"
                     HorizontalTextAlignment="Center"/>
                 <!-- $$$ -->
                 <Label
                     Grid.Column="2"
                     Text="Precio"
+                    FontSize="18"
                     FontAttributes="Bold"
                     HorizontalTextAlignment="End"/>
 
@@ -71,16 +78,19 @@
                             <Label
                                 Grid.Column="0"
                                 Text="{Binding Cantidad}"
+                                FontSize="18"
                                 HorizontalTextAlignment="Center"/>
                             <!-- PEDIDO -->
                             <Label
                                 Grid.Column="1"
                                 Text="{Binding Consumible}"
+                                FontSize="18"
                                 HorizontalTextAlignment="Center"/>
                             <!-- PRECIO -->
                             <Label
                                 Grid.Column="2"
                                 Text="{Binding SubtotalFormateado}"
+                                FontSize="18"
                                 HorizontalTextAlignment="End"/>
 
                         </Grid>
@@ -101,6 +111,7 @@
                     Grid.Column="0"
                     Text="TOTAL:"
                     FontAttributes="Bold"
+                    FontSize="16"
                     HorizontalTextAlignment="End"
                     VerticalTextAlignment="Center"/>
 
@@ -115,6 +126,7 @@
 
             <Label
                 Text="¡Gracias por tu compra!"
+                FontSize="18"
                 HorizontalTextAlignment="Center"
                 Margin="0,10,0,0"/>
 

@@ -2,8 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:PedidoApp"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="PedidoApp.TicketPage">
-    <local:TicketView
-        x:Name="Ticket"/>
+    <Page.Behaviors>
+        <toolkit:StatusBarBehavior 
+            StatusBarColor="{StaticResource White}"
+            ApplyOn="OnBehaviorAttachedTo"/>
+    </Page.Behaviors>
+    <!-- PRUEBA BOTÓN IMPRIMIR -->
+    <VerticalStackLayout>
+
+        <local:TicketView
+        x:Name="Ticket"
+            Margin="0,0,0,40"/>
+
+        <Button
+        Text="Imprimir"
+        FontAttributes="Bold"
+        BackgroundColor="{StaticResource Terciario}"
+        Clicked="Imprimir_Clicked"/>
+
+    </VerticalStackLayout>
 
 </ContentPage>

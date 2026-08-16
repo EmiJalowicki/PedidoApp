@@ -76,8 +76,8 @@ namespace PedidoApp
                 OnPropertyChanged(nameof(TotalFormateado));
             }
         }
-        //Evento Imprimir
-        private async void Imprimir_Clicked(object sender, EventArgs e)
+        //Evento CrearTicket
+        private async void CrearTicket_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TicketPage(this));
         }
