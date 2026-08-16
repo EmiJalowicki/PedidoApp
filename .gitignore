@@ -8,6 +8,9 @@ obj/
 # Archivos de usuario
 *.user
 *.suo
+*.keystore
+*.jks
+Directory.Build.props.user
 
 # Archivos temporales
 *.tmp
