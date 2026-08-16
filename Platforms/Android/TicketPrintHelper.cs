@@ -18,7 +18,7 @@ public class TicketPrintAdapter : PrintDocumentAdapter
 
     public override void OnLayout(
         PrintAttributes? oldAttributes,
-        PrintAttributes newAttributes,
+        PrintAttributes? newAttributes,
         CancellationSignal? cancellationSignal,
         LayoutResultCallback? callback,
         Bundle? extras)
@@ -104,8 +104,19 @@ public class TicketPrintAdapter : PrintDocumentAdapter
                 .Create();
 
             using var page = document.StartPage(pageInfo);
+            if (page == null)
+            {
+                callback?.OnWriteFailed("No se pudo crear la página de PDF :(");
+                return;
+            }
 
             var pdfCanvas = page.Canvas;
+            if (pdfCanvas == null)
+            {
+                callback?.OnWriteFailed(
+                    "No se pudo obtener el canvas del PDF.");
+                return;
+            }
 
             const float margin = 10f;
 
@@ -139,7 +150,7 @@ public class TicketPrintAdapter : PrintDocumentAdapter
 
             using var safeHandle =
                 new Microsoft.Win32.SafeHandles.SafeFileHandle(
-                    destination!.Fd,
+                    destination.Fd,
                     ownsHandle: false);
 
             using var output = new System.IO.FileStream(
