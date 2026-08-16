@@ -1,4 +1,4 @@
-# PedidoApp
+﻿# PedidoApp
 
 PedidoApp es una aplicación para Android para digitalizar los pedidos y facilitar su impresión en forma de ticket.
 
