@@ -16,13 +16,64 @@
             <VerticalStackLayout 
                 Spacing="15" 
                 VerticalOptions="Center"
-                Padding="10">
+                Padding="5">
                 <!-- Titulo -->
-                <Label 
+                <Label
+                    FontFamily="Aptos"
                     FontAttributes="Bold"
-                    FontSize="Large"
+                    FontSize="32"
                     HorizontalTextAlignment="Center"
-                    Text="PedidoApp"/>
+                    Text="La Cocina de So"/>
+                <Grid
+                    ColumnDefinitions="100,*"
+                    RowDefinitions="Auto, Auto, Auto, Auto"
+                    ColumnSpacing="5"
+                    RowSpacing="5">
+
+                    <!-- CLIENTE -->
+                    <!-- Nombre -->
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Cliente:"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        VerticalTextAlignment="Center"/>
+                    <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Text="{Binding NomCliente}"
+                        VerticalTextAlignment="Center"/>
+                    <!-- Dirección -->
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Dirección:"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        VerticalTextAlignment="Center"/>
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="{Binding DirCliente}"
+                        VerticalTextAlignment="Center"/>
+                    <!-- Telefono -->
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Text="Teléfono:"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        VerticalTextAlignment="Center"/>
+                    <Entry
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Text="{Binding TelCliente}"
+                        VerticalTextAlignment="Center"/>
+
+                </Grid>
+                    
+                
                 <!-- Encabezados -->
                 <Grid
                     ColumnDefinitions="60,*,100,45"

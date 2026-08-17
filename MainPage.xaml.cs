@@ -9,6 +9,11 @@ namespace PedidoApp
     {
         private CancellationTokenSource? _debounce;
         public ObservableCollection<PedidoItem> Items { get; set; }
+
+        public string NomCliente { get; set; }
+        public string DirCliente { get; set; }
+        public string TelCliente { get; set; }
+
         public decimal Total
         {
             get
