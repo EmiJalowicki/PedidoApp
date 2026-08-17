@@ -52,12 +52,15 @@
 	  <AndroidPackageFormat>apk</AndroidPackageFormat>
 	  <AndroidKeyStore>True</AndroidKeyStore>
 	  <AndroidSigningKeyAlias>pedidoapp</AndroidSigningKeyAlias>
+	  <AndroidSigningStorePass>159357SnK</AndroidSigningStorePass>
+	  <AndroidSigningKeyPass>159357SnK</AndroidSigningKeyPass>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0-android|AnyCPU'">
 	  <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
 	  <AndroidKeyStore>True</AndroidKeyStore>
 	  <AndroidSigningKeyAlias>pedidoapp</AndroidSigningKeyAlias>
+	  
 	</PropertyGroup>
 
 	<ItemGroup>
