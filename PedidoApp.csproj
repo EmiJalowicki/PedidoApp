@@ -92,10 +92,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="TicketPage.xaml">
+	  <MauiXaml Update="Paginas\TicketPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="TicketView.xaml">
+	  <MauiXaml Update="Vistas\TicketView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

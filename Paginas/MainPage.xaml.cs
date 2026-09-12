@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using PedidoApp.Modelos;
 using System.Linq;
 using System.Globalization;
 
@@ -40,6 +41,32 @@ namespace PedidoApp
 
         }
         //Acciones
+        private void DisminuirCantidad_Clicked(object sender, EventArgs e)
+        {
+            if (sender is Button boton &&
+                boton.BindingContext is PedidoItem item)
+            {
+                if (!int.TryParse(item.Cantidad, out int cantidad))
+                    cantidad = 1;
+
+                if (cantidad > 1)
+                    cantidad--;
+
+                item.Cantidad = cantidad.ToString();
+            }
+        }
+        private void AumentarCantidad_Clicked(object sender, EventArgs e)
+        {
+            if (sender is Button boton &&
+                boton.BindingContext is PedidoItem item)
+            {
+                if (!int.TryParse(item.Cantidad, out int cantidad))
+                    cantidad = 0;
+
+                item.Cantidad = (cantidad + 1).ToString();
+            }
+        }
+
         private void AgregarItem_Clicked(object sender, EventArgs e)
         {
             var item = new PedidoItem();
@@ -56,6 +83,7 @@ namespace PedidoApp
                 OnPropertyChanged(nameof(Total));
             }
         }
+
         //Cambios y calculos
         private async void Item_PropertyChanged(object? sender, PropertyChangedEventArgs e)
         {

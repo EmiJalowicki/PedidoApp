@@ -4,7 +4,7 @@ using System.Text;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 
-namespace PedidoApp
+namespace PedidoApp.Modelos
 {
     public class PedidoItem : INotifyPropertyChanged
     {

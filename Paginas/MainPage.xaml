@@ -108,16 +108,44 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid
-                                ColumnDefinitions="60,*,100, 45"
+                                ColumnDefinitions="Auto,*,60,45"
                                 ColumnSpacing="5"
                                 Padding="0,5">
                                 <!-- CANT.-->
-                                <Entry
-                                    Grid.Column="0"
-                                    Text="{Binding Cantidad}"
-                                    Placeholder="0"
-                                    Keyboard="Numeric"
-                                    HorizontalTextAlignment="Center"/>
+                                <HorizontalStackLayout
+                                    Grid.Column = "0"
+                                    Spacing="2"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                    <!-- [-] -->
+                                    <Button
+                                        Text="-"
+                                        FontSize="10"
+                                        WidthRequest="10"
+                                        HeightRequest="10"
+                                        Padding="0"
+                                        Background="{StaticResource Terciario}"
+                                        Clicked="DisminuirCantidad_Clicked"/>
+                                    <Entry
+                                        Text="{Binding Cantidad}"
+                                        WidthRequest="35"
+                                        HeightRequest="35"
+                                        Keyboard="Numeric"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center"
+                                        MaxLength="3"/>
+                                    <!-- [+] -->
+                                    <Button
+                                        Text="+"
+                                        FontSize="10"
+                                        WidthRequest="10"
+                                        HeightRequest="10"
+                                        Padding="0"
+                                        Background="{StaticResource Terciario}"
+                                        Clicked="AumentarCantidad_Clicked"/>
+
+                                </HorizontalStackLayout>
+                                
                                 <!-- Consumible / Item -->
                                 <Entry
                                     Grid.Column="1"
