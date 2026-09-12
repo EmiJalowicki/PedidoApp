@@ -8,7 +8,6 @@ namespace PedidoApp
 {
     public partial class MainPage : ContentPage
     {
-        private CancellationTokenSource? _debounce;
         public ObservableCollection<PedidoItem> Items { get; set; }
 
         public string NomCliente { get; set; }
@@ -21,7 +20,7 @@ namespace PedidoApp
             {
                 return Items.Sum(item =>
                 {
-                    int.TryParse(item.Cantidad, out int cantidad);
+                    int cantidad = item.Cantidad;
                     decimal.TryParse(item.Precio, out decimal precio);
                     return cantidad * precio;
                 });
@@ -46,13 +45,11 @@ namespace PedidoApp
             if (sender is Button boton &&
                 boton.BindingContext is PedidoItem item)
             {
-                if (!int.TryParse(item.Cantidad, out int cantidad))
-                    cantidad = 1;
-
-                if (cantidad > 1)
+                int cantidad = item.Cantidad;
+                if (cantidad > 0)
                     cantidad--;
 
-                item.Cantidad = cantidad.ToString();
+                item.Cantidad = cantidad;
             }
         }
         private void AumentarCantidad_Clicked(object sender, EventArgs e)
@@ -60,10 +57,7 @@ namespace PedidoApp
             if (sender is Button boton &&
                 boton.BindingContext is PedidoItem item)
             {
-                if (!int.TryParse(item.Cantidad, out int cantidad))
-                    cantidad = 0;
-
-                item.Cantidad = (cantidad + 1).ToString();
+                item.Cantidad++;
             }
         }
 
@@ -80,33 +74,22 @@ namespace PedidoApp
                 boton.BindingContext is PedidoItem item)
             {
                 Items.Remove(item);
-                OnPropertyChanged(nameof(Total));
+                ActualizarTotal();
             }
         }
 
         //Cambios y calculos
-        private async void Item_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void ActualizarTotal()
         {
-            if (e.PropertyName == nameof(PedidoItem.Precio))
+            OnPropertyChanged(nameof(Total));
+            OnPropertyChanged(nameof(TotalFormateado));
+        }
+        private void Item_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(PedidoItem.Precio) ||
+                e.PropertyName == nameof(PedidoItem.Cantidad))
             {
-                _debounce?.Cancel();
-                _debounce = new CancellationTokenSource();
-                try
-                {
-                    await Task.Delay(300, _debounce.Token);
-
-                    if (sender is PedidoItem item &&
-                    (string.IsNullOrWhiteSpace(item.Cantidad) || item.Cantidad == "0"))
-                    {
-                        item.Cantidad = "1";
-                    }
-                    OnPropertyChanged(nameof(Total));
-                    OnPropertyChanged(nameof(TotalFormateado));
-                }
-                catch(TaskCanceledException){}
-            }else if (e.PropertyName == nameof(PedidoItem.Cantidad)){
-                OnPropertyChanged(nameof(Total));
-                OnPropertyChanged(nameof(TotalFormateado));
+                ActualizarTotal();
             }
         }
         //Evento CrearTicket

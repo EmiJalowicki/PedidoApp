@@ -8,10 +8,10 @@ namespace PedidoApp.Modelos
 {
     public class PedidoItem : INotifyPropertyChanged
     {
-        private string cantidad = "";
+        private int cantidad = 1;
         private string consumible = "";
         private string precio = "";
-        public string Cantidad
+        public int Cantidad
         {
             get => cantidad;
             set
@@ -55,7 +55,6 @@ namespace PedidoApp.Modelos
         {
             get
             {
-                int.TryParse(Cantidad, out int cantidad);
                 decimal.TryParse(Precio, out decimal precio);
 
                 return cantidad * precio;
