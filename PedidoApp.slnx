@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="PedidoApp.csproj" />
+  <Project Path="PedidoApp.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>
