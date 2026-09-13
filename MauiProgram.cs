@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
+using PedidoApp.DataBase;
 
 namespace PedidoApp
 {
@@ -17,12 +18,19 @@ namespace PedidoApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("Aptos.ttf", "Aptos");
                 });
+            builder.Services.AddSingleton<InicializarDB>(); //Verifica si existe DB
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
+            MauiApp app = builder.Build();
 
-            return builder.Build();
+            InicializarDB inicializador =
+                app.Services.GetRequiredService<InicializarDB>();
+
+            inicializador.Inicializar();
+
+            return app;
         }
     }
 }
