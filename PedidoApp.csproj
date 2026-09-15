@@ -102,8 +102,7 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-    <MauiAsset Include="DataBase\Create_DB.sql"
-               LogicalName="Create_DB.sql" />
+    <MauiAsset Include="DataBase\Create_DB.sql" LogicalName="Create_DB.sql" />
 </ItemGroup>
 	
 <Import Project="Directory.Build.props.user" Condition="Exists('Directory.Build.props.user')" />
