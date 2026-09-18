@@ -17,6 +17,7 @@ namespace PedidoApp
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                     fonts.AddFont("Aptos.ttf", "Aptos");
+                    fonts.AddFont("MaterialSymbolsOutlined.ttf", "MaterialSymbols");
                 });
             builder.Services.AddSingleton<InicializarDB>(); //Verifica si existe DB
 

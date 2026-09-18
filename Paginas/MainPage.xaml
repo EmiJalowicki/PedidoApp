@@ -9,28 +9,69 @@
             ApplyOn="OnPageNavigatedTo"/>
     </Page.Behaviors>
     
-    <Grid x:Name="Tab" BackgroundColor="{StaticResource Fondo}">
-        
-        <Border Margin="10,0,10,0" VerticalOptions="Center" BackgroundColor="White">
-
-            <VerticalStackLayout 
-                Spacing="15" 
+    <Grid x:Name="Tab" 
+          BackgroundColor="{StaticResource Fondo}"
+          RowDefinitions="60,*">
+        <!-- BORDE SUPERIOR -->
+        <Grid
+            Grid.Row="0"
+            BackgroundColor="{StaticResource White}">
+            <!-- NOMBRE -->
+            <Label
+                Grid.Row="0"
+                Text="PEDIDOAPP"
+                FontFamily="Aptos"
+                FontAttributes="Bold"
+                FontSize="32"
+                HorizontalOptions="Center"
                 VerticalOptions="Center"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Center"/>
+            <!-- Opciones -->
+            <Button
+                Text="more_vert"
+                FontFamily="MaterialSymbols"
+                TextColor="Black"
+                Padding="0"
+                WidthRequest="50"
+                HeightRequest="50"
+                FontSize="32"
+                BackgroundColor="Transparent"
+                
+                HorizontalOptions="End"
+                VerticalOptions="Center"/>
+
+        </Grid>
+        
+        <!-- Contenido ticket -->
+        <Border
+            Grid.Row="1"
+            Margin="0,0,0,0" 
+            VerticalOptions="Center" 
+            BackgroundColor="White">
+            
+
+            <Grid 
+                RowSpacing="15"
+                RowDefinitions="Auto, Auto, Auto,*, Auto, Auto"
                 Padding="5">
+                
                 <!-- Titulo -->
                 <Label
+                    Grid.Row="0"
                     FontFamily="Aptos"
                     FontAttributes="Bold"
                     FontSize="32"
                     HorizontalTextAlignment="Center"
                     Text="La Cocina de So"/>
+                
+                <!-- CLIENTE -->
                 <Grid
+                    Grid.Row="1"
                     ColumnDefinitions="100,*"
-                    RowDefinitions="Auto, Auto, Auto, Auto"
+                    RowDefinitions="Auto, Auto, Auto"
                     ColumnSpacing="5"
                     RowSpacing="5">
-
-                    <!-- CLIENTE -->
                     <!-- Nombre -->
                     <Label
                         Grid.Row="0"
@@ -76,6 +117,7 @@
                 
                 <!-- Encabezados -->
                 <Grid
+                    Grid.Row="2"
                     ColumnDefinitions="60,*,100,45"
                     RowDefinitions="Auto,Auto"
                     ColumnSpacing="5"
@@ -103,6 +145,7 @@
                 </Grid>
                 <!-- Pedidos -->
                 <CollectionView
+                    Grid.Row="3"
                     ItemsSource="{Binding Items}">
                     
                     <CollectionView.ItemTemplate>
@@ -177,6 +220,7 @@
                 
                 <!-- BOTON + -->
                 <Button
+                    Grid.Row="4"
                     Text="+"
                     BackgroundColor="{StaticResource Primario}"
                     Clicked="AgregarItem_Clicked"
@@ -185,7 +229,8 @@
                     HeightRequest="25"/>
                 
                 <!-- TOTAL / Imprimir -->
-                <Grid 
+                <Grid
+                    Grid.Row="5"
                     ColumnDefinitions="Auto,*,Auto"
                     ColumnSpacing="10">
                     <!-- IMPRIMIR -->
@@ -214,7 +259,7 @@
 
                 </Grid>
                 
-            </VerticalStackLayout>
+            </Grid>
             
         </Border>
 
