@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Class="PedidoApp.PopUps.OpcionesPopUp"
+    WidthRequest="200"
+    HeightRequest="100">
+
+    <Border
+        BackgroundColor="White"
+        StrokeThickness="0"
+        Padding="5">
+
+        <VerticalStackLayout
+            Spacing="0">
+
+            <Button
+                Text="Menú"
+                FontSize="22"
+                FontFamily="Aptos"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"
+                BackgroundColor="Transparent"
+                TextColor="Black"
+                Clicked="Menu_Clicked"/>
+
+        </VerticalStackLayout>
+
+    </Border>
+
+</toolkit:Popup>

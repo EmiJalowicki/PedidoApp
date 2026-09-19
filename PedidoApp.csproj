@@ -96,6 +96,9 @@
 	  <MauiXaml Update="Paginas\TicketPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="PopUps\OpcionesPopUp.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Vistas\TicketView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

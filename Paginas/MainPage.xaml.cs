@@ -1,8 +1,10 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using CommunityToolkit.Maui.Extensions;
 using PedidoApp.Modelos;
-using System.Linq;
+using PedidoApp.PopUps;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Globalization;
+using System.Linq;
 
 namespace PedidoApp
 {
@@ -61,12 +63,18 @@ namespace PedidoApp
             }
         }
 
-        private void AgregarItem_Clicked(object sender, EventArgs e)
+        private async void AgregarItem_Clicked(object sender, EventArgs e)
         {
             var item = new PedidoItem();
             item.PropertyChanged += Item_PropertyChanged;
 
             Items.Add(item);
+            await Task.Delay(50);
+
+            Pedidos.ScrollTo(
+                item,
+                position: ScrollToPosition.End,
+                animate: true);
         }
         private void EliminarItem_Clicked(object sender, EventArgs e)
         {
@@ -76,6 +84,10 @@ namespace PedidoApp
                 Items.Remove(item);
                 ActualizarTotal();
             }
+        }
+        private void Opciones_Clicked(object sender, EventArgs e)
+        {
+            this.ShowPopup(new OpcionesPopUp());
         }
 
         //Cambios y calculos
