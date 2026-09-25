@@ -88,9 +88,35 @@ namespace PedidoApp
                 ActualizarTotal();
             }
         }
+        //Nuevo item
+        private async void NuevoPedido()
+        {
+            bool confirmar = await DisplayAlertAsync(
+                "Nuevo pedido",
+                "¿Querés comenzar un nuevo pedido? Se borrarán todos los datos del pedido actual.",
+                "Aceptar",
+                "Cancelar");
+
+            if (!confirmar)
+                return;
+
+            NomCliente = string.Empty;
+            DirCliente = string.Empty;
+            TelCliente = string.Empty;
+
+            Items.Clear();
+            Items.Add(NuevoItem());
+
+            OnPropertyChanged(nameof(NomCliente));
+            OnPropertyChanged(nameof(DirCliente));
+            OnPropertyChanged(nameof(TelCliente));
+
+            ActualizarTotal();
+        }
+        //Opciones
         private void Opciones_Clicked(object sender, EventArgs e)
         {
-            this.ShowPopup(new OpcionesPopUp());
+            this.ShowPopup(new OpcionesPopUp(NuevoPedido));
         }
 
         //Cambios y calculos
