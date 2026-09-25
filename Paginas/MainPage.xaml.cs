@@ -34,12 +34,16 @@ namespace PedidoApp
         {
             InitializeComponent();
             Items = new ObservableCollection<PedidoItem>();
-            var itemInicio = new PedidoItem();
-            itemInicio.PropertyChanged += Item_PropertyChanged;
-
-            Items.Add(itemInicio);
+            Items.Add(NuevoItem());
             BindingContext = this;
 
+        }
+        //Crear Item
+        private PedidoItem NuevoItem()
+        {
+            var item = new PedidoItem();
+            item.PropertyChanged += Item_PropertyChanged;
+            return item;
         }
         //Acciones
         private void DisminuirCantidad_Clicked(object sender, EventArgs e)
@@ -65,8 +69,7 @@ namespace PedidoApp
 
         private async void AgregarItem_Clicked(object sender, EventArgs e)
         {
-            var item = new PedidoItem();
-            item.PropertyChanged += Item_PropertyChanged;
+            var item = NuevoItem();
 
             Items.Add(item);
             await Task.Delay(50);
