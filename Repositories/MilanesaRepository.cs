@@ -31,8 +31,8 @@ namespace PedidoApp.Repositories
         {
             return await _conn.ExecuteAsync(
                 @"UPDATE MILANESA
-                  SET Nombre = @Nombre
-                      Precio = @Precio
+                  SET Nombre = @Nombre,
+                      Precio = @Precio,
                       EstaActivo = @EstaActivo
                   WHERE ID = @ID",
                 new

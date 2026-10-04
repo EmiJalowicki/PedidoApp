@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui.Extensions;
 using PedidoApp.Modelos;
+using PedidoApp.Paginas;
 using PedidoApp.PopUps;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -88,7 +89,14 @@ namespace PedidoApp
                 ActualizarTotal();
             }
         }
-        //Nuevo item
+        
+        //Opciones
+        private void Opciones_Clicked(object sender, EventArgs e)
+        {
+            this.ShowPopup(new OpcionesPopUp(
+                NuevoPedido,
+                AbrirMenu));
+        }
         private async void NuevoPedido()
         {
             bool confirmar = await DisplayAlertAsync(
@@ -113,10 +121,10 @@ namespace PedidoApp
 
             ActualizarTotal();
         }
-        //Opciones
-        private void Opciones_Clicked(object sender, EventArgs e)
+
+        private async void AbrirMenu()
         {
-            this.ShowPopup(new OpcionesPopUp(NuevoPedido));
+            await Navigation.PushAsync(new MenuPage());
         }
 
         //Cambios y calculos

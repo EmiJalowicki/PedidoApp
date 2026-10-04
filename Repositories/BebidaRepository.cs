@@ -30,7 +30,7 @@ namespace PedidoApp.Repositories
         {
             return await _conn.ExecuteAsync(
                 @"UPDATE BEBIDA
-                  SET Nombre = @Nombre
+                  SET Nombre = @Nombre,
                       EsAlcoholica = @EsAlcoholica
                   WHERE ID = @ID",
                 new

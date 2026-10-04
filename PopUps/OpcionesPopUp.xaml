@@ -5,8 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:Class="PedidoApp.PopUps.OpcionesPopUp"
-    WidthRequest="200"
-    HeightRequest="150">
+    WidthRequest="240"
+    HeightRequest="160">
 
     <Border
         BackgroundColor="White"
@@ -21,18 +21,20 @@
                 FontSize="22"
                 FontFamily="Aptos"
                 FontAttributes="Bold"
-                HorizontalOptions="Start"
+                HorizontalOptions="Fill"
                 BackgroundColor="Transparent"
                 TextColor="Black"
+                Padding="10,5"
                 Clicked="Menu_Clicked"/>
             <Button
                 Text="Nuevo pedido"
                 FontSize="22"
                 FontFamily="Aptos"
                 FontAttributes="Bold"
-                HorizontalOptions="Start"
+                HorizontalOptions="Fill"
                 BackgroundColor="Transparent"
                 TextColor="Black"
+                Padding="10,5"
                 Clicked="NuevoPedido_Clicked"/>
 
         </VerticalStackLayout>

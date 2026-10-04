@@ -4,10 +4,12 @@ using CommunityToolkit.Maui.Views;
 public partial class OpcionesPopUp : Popup
 {
     private readonly Action _nuevoPedido;
-	public OpcionesPopUp(Action nuevoPedido)
+    private readonly Action _abrirMenu;
+    public OpcionesPopUp(Action nuevoPedido, Action abrirMenu)
 	{
 		InitializeComponent();
         _nuevoPedido = nuevoPedido;
+        _abrirMenu = abrirMenu;
 
         HorizontalOptions = LayoutOptions.End;
         VerticalOptions = LayoutOptions.Start;
@@ -16,6 +18,7 @@ public partial class OpcionesPopUp : Popup
     private async void Menu_Clicked(object sender, EventArgs e)
     {
         await CloseAsync();
+        _abrirMenu();
     }
     private async void NuevoPedido_Clicked(object sender, EventArgs e)
     {
