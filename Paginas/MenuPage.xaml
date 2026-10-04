@@ -11,13 +11,28 @@
             Spacing="12">
 
             <!-- TÍTULO -->
-            <Label
-                Text="MENÚ"
-                FontSize="30"
-                FontAttributes="Bold"
-                HorizontalOptions="Center"
-                Margin="0,0,0,10" />
-
+            <Grid
+                ColumnDefinitions="*,Auto"
+                Margin="0,0,0,10">
+                <Label
+                    Grid.Column="0"
+                    Text="MENÚ"
+                    FontSize="30"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+                <Button
+                    Grid.Column="1"
+                    Text="+"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    Padding="0"
+                    BackgroundColor="{StaticResource Primario}"
+                    TextColor="White"
+                    Clicked="AgregarMenu_Clicked"/>
+            </Grid>
 
             <!-- ==================== -->
             <!-- PIZZAS -->
@@ -125,7 +140,7 @@
                     <Grid
                         Padding="15,12"
                         ColumnDefinitions="*,Auto"
-                        BackgroundColor="{StaticResource Secundario}">
+                        BackgroundColor="{StaticResource Primario}">
 
                         <Label
                             Text="🥟  EMPANADAS"
@@ -218,13 +233,12 @@
                     <Grid
                         Padding="15,12"
                         ColumnDefinitions="*,Auto"
-                        BackgroundColor="{StaticResource Terciario}">
+                        BackgroundColor="{StaticResource Primario}">
 
                         <Label
                             Text="🍗  MILANESAS"
                             FontSize="20"
                             FontAttributes="Bold"
-                            TextColor="White"
                             VerticalOptions="Center" />
 
                         <Label
@@ -232,7 +246,6 @@
                             Grid.Column="1"
                             Text="▶"
                             FontSize="18"
-                            TextColor="White"
                             VerticalOptions="Center" />
 
                         <Grid.GestureRecognizers>
@@ -304,10 +317,11 @@
                     <Grid
                         Padding="15,12"
                         ColumnDefinitions="*,Auto"
-                        BackgroundColor="{StaticResource Primario}">
+                        BackgroundColor="{StaticResource Terciario}">
 
                         <Label
                             Text="🥤  BEBIDAS"
+                            TextColor="White"
                             FontSize="20"
                             FontAttributes="Bold"
                             VerticalOptions="Center" />
@@ -316,6 +330,7 @@
                             x:Name="BebidaFlecha"
                             Grid.Column="1"
                             Text="▶"
+                            TextColor="White"
                             FontSize="18"
                             VerticalOptions="Center" />
 
