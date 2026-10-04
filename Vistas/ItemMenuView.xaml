@@ -32,6 +32,23 @@
                 Keyboard="Numeric"
                 FontSize="17" />
 
+            <HorizontalStackLayout
+                Spacing="10">
+
+                <CheckBox
+                    x:Name="DisponibleCheckBox"
+                    IsChecked="True"
+                    Color="Black"
+                    WidthRequest="35"
+                    HeightRequest="35"
+                    VerticalOptions="Center" />
+
+                <Label
+                    Text="Disponible"
+                    FontSize="18"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
         </VerticalStackLayout>
 
 
@@ -76,11 +93,16 @@
         <!-- Helado -->
         <VerticalStackLayout
             x:Name="FormularioHelado"
-            IsVisible="False">
+            IsVisible="False"
+            Spacing="10">
 
             <Label
-                Text="FORMULARIO HELADO"
-                FontSize="20" />
+                Text="Tamaños y precios"
+                FontSize="18" />
+
+            <VerticalStackLayout
+                x:Name="TamaniosHeladoLayout"
+                Spacing="10" />
 
         </VerticalStackLayout>
 

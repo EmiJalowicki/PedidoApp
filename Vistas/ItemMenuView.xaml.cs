@@ -56,6 +56,22 @@ public partial class ItemMenuView : ContentView
         FormularioSimple.IsVisible = false;
         FormularioBebida.IsVisible = false;
         FormularioHelado.IsVisible = true;
+
+        TamaniosHeladoLayout.Children.Clear();
+
+        AgregarTamanioHelado("Tacita");
+        AgregarTamanioHelado("Cucurucho");
+        AgregarTamanioHelado("1/4 kg");
+        AgregarTamanioHelado("1/2 kg");
+        AgregarTamanioHelado("1 kg");
+    }
+    private void AgregarTamanioHelado(string medida)
+    {
+        var tamanio = new TamanioHeladoView();
+
+        tamanio.Configurar(medida);
+
+        TamaniosHeladoLayout.Children.Add(tamanio);
     }
 
 }

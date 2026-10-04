@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PedidoApp.Vistas.TamanioHeladoView">
+
+    <Grid
+        ColumnDefinitions="40,*,110"
+        ColumnSpacing="10">
+
+        <CheckBox
+            x:Name="ActivoCheckBox"
+            Grid.Column="0"
+            IsChecked="False"
+            Color="Black"
+            WidthRequest="35"
+            HeightRequest="35"
+            HorizontalOptions="Start"
+            VerticalOptions="Center" />
+
+        <Label
+            x:Name="MedidaLabel"
+            Grid.Column="1"
+            FontSize="17"
+            VerticalOptions="Center" />
+
+        <Entry
+            x:Name="PrecioEntry"
+            Grid.Column="2"
+            Placeholder="Precio"
+            Keyboard="Numeric"
+            FontSize="17"
+            HorizontalTextAlignment="End"
+            VerticalOptions="Center" />
+
+    </Grid>
+
+</ContentView>
