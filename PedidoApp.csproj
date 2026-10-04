@@ -108,6 +108,9 @@
 	  <MauiXaml Update="Vistas\ItemMenuView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Vistas\TamanioBebidaView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Vistas\TicketView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
