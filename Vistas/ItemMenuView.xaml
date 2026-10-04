@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="PedidoApp.Vistas.ItemMenuView">
+
+    <VerticalStackLayout
+        Spacing="15">
+
+        <!-- Pizza / Empanada / Milanesa -->
+        <VerticalStackLayout
+            x:Name="FormularioSimple"
+            Spacing="15">
+
+            <Label
+                Text="Nombre"
+                FontSize="18" />
+
+            <Entry
+                x:Name="NombreEntry"
+                Placeholder="Nombre del artículo"
+                FontSize="17" />
+
+            <Label
+                Text="Precio"
+                FontSize="18" />
+
+            <Entry
+                x:Name="PrecioEntry"
+                Placeholder="Precio"
+                Keyboard="Numeric"
+                FontSize="17" />
+
+        </VerticalStackLayout>
+
+
+        <!-- Bebida -->
+        <VerticalStackLayout
+            x:Name="FormularioBebida"
+            IsVisible="False"
+            Spacing="15">
+
+            <Label
+                Text="Nombre"
+                FontSize="18" />
+
+            <Entry
+                x:Name="BebidaNombreEntry"
+                Placeholder="Nombre de la bebida"
+                FontSize="17" />
+
+            <HorizontalStackLayout
+                Spacing="10">
+                <Label
+                    Text="¿Es alcohólica?"
+                    FontSize="18"
+                    VerticalOptions="Center" />
+                <Switch
+                    x:Name="BebidaAlcoholicaSwitch"
+                    VerticalOptions="Center" />
+
+            </HorizontalStackLayout>
+            
+            <Label
+                Text="Tamaños y precios"
+                FontSize="18" />
+
+        </VerticalStackLayout>
+
+
+        <!-- Helado -->
+        <VerticalStackLayout
+            x:Name="FormularioHelado"
+            IsVisible="False">
+
+            <Label
+                Text="FORMULARIO HELADO"
+                FontSize="20" />
+
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentView>

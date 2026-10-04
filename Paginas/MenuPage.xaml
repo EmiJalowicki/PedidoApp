@@ -4,35 +4,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PedidoApp.Paginas.MenuPage"
              Title="Menú">
+    <ContentPage.ToolbarItems>
+    <ToolbarItem
+            Text="Agregar"
+            Order="Primary"
+            Priority="0"
+            Clicked="AgregarMenu_Clicked" />
+    </ContentPage.ToolbarItems>
 
     <ScrollView>
         <VerticalStackLayout
             Padding="20"
             Spacing="12">
-
-            <!-- TÍTULO -->
-            <Grid
-                ColumnDefinitions="*,Auto"
-                Margin="0,0,0,10">
-                <Label
-                    Grid.Column="0"
-                    Text="MENÚ"
-                    FontSize="30"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-                <Button
-                    Grid.Column="1"
-                    Text="+"
-                    FontSize="28"
-                    FontAttributes="Bold"
-                    WidthRequest="50"
-                    HeightRequest="50"
-                    Padding="0"
-                    BackgroundColor="{StaticResource Primario}"
-                    TextColor="White"
-                    Clicked="AgregarMenu_Clicked"/>
-            </Grid>
 
             <!-- ==================== -->
             <!-- PIZZAS -->

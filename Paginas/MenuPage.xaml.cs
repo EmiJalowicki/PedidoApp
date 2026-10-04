@@ -9,10 +9,7 @@ public partial class MenuPage : ContentPage
     //Botones
     private async void AgregarMenu_Clicked(object sender, EventArgs e)
     {
-        await DisplayAlertAsync(
-            "Agregar",
-            "Acá vamos a agregar un elemento al menú.",
-            "Aceptar");
+        await Navigation.PushAsync(new AgregarMenuPage());
     }
 
     private void PizzaHeader_Tapped(object sender, TappedEventArgs e)
