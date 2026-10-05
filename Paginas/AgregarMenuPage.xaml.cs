@@ -1,8 +1,11 @@
+using PedidoApp.Servicios;
+
 namespace PedidoApp.Paginas;
 
 public partial class AgregarMenuPage : ContentPage
 {
-	public AgregarMenuPage()
+    private readonly MenuServicio _menuServicio;
+    public AgregarMenuPage()
 	{
 		InitializeComponent();
 
